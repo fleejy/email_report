@@ -149,6 +149,22 @@ g11 <- ggplot(df11,aes(date, counts)) +
 The following graph displays the number of emails sent by an account on the corresponding date. Note that the compilation of sender was abbreviated in order to reduce the length of labels.
 
 ```{r}
+test1 <- as.integer(mhi_email$from %in% unique(mhi_email$from))
+test1
+
+x <- as.list(rnorm(10000))
+names(x) <- paste("a", 1:length(x), sep = "")
+list2env(x , envir = .GlobalEnv)
+
+# Create column
+mhi_email$abbrev <- 
+relabel <- function(x) {
+  # find unique
+  # assign count?
+  
+  mhi_email$abbrev <- as.factor(mhi_email$abbrev)
+}
+
 # Table of abbreviations
 knitr::kable(unique(mhi_email$from), caption="Abbreviation of Senders")
 
