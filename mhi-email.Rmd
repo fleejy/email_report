@@ -1,7 +1,6 @@
 ---
 title: "MHI Cohort Email Analysis"
 author: "Jae Yong (Francisco) Lee"
-date: '2019-02-05'
 output:
   pdf_document: default
   html_document:
@@ -40,7 +39,7 @@ From this analysis, the author explored the following attributes:
 
 ```{r}
 # Set working directory
-setwd("~/Education/UofToronto (2018-2019)/Email Report/")
+setwd("~/repos/email_report/")
 
 # Include libraries
 library(ggplot2)
@@ -160,22 +159,12 @@ sf <- mhi_email %>%
 sf
 
 # Create bar plot.
+# 
 ggplot(sf, aes(x = from, y = counts)) +
   geom_bar(fill = "#0073C2FF", stat = "identity") +
   geom_text(aes(label = counts), vjust = -0.3) + 
   theme_pubclean() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
-```
-
-# (3) Sender and Date
-The following graph displays the number of emails sent by an account on the corresponding date.
-```{r}
-# Compute the sender frequency by date.
-sfd <- mhi_email %>%
-  group_by(date, from) %>%
-  summarise (n = n())
-
-# Create bar plot.
 ```
 
 # (4) Listserv Majority
